@@ -1,0 +1,22 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: sebastian.gerard
+ * Date: 6/26/2017
+ * Time: 5:20 PM
+ */
+$form = $this->form;
+$form->setAttribute('action', $this->url());
+$form->prepare();
+
+echo $this->form()->openTag($form);
+    echo '<div class="jumbotron">';
+        echo '<div class="form-group">';
+            echo $this->formRow($form->get('username'));
+        echo '</div>';
+        echo '<div class="form-group">';
+            echo $this->formRow($form->get('password'));
+        echo '</div>';
+        echo $this->formSubmit($form->get('submit'));
+    echo '</div>';
+echo $this->form()->closeTag();

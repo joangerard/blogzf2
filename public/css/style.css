@@ -1,0 +1,86 @@
+body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background: url(http://1.bp.blogspot.com/-yN4ZjJeQB78/UFLggyCc4WI/AAAAAAAAF_o/XFGNpafLffU/s1600/body.png);
+}
+
+.zf-green {
+    color: #68b604;
+}
+
+.btn-success {
+  background-color: #57a900;
+  background-image: -moz-linear-gradient(top, #70d900, #57a900);
+  background-image: -ms-linear-gradient(top, #70d900, #57a900);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+  background-image: -o-linear-gradient(top, #70d900, #57a900);
+  background-image: linear-gradient(top, #70d900, #57a900);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+  background-color: #57a900;
+}
+
+div.container a.brand {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+}
+
+form .jumbotron{
+    background: url(http://1.bp.blogspot.com/-CYQ5F9q6YlE/VIX6zgIg8EI/AAAAAAAAGwU/nkOudSDpI18/s1600/website-background-rough-surface.jpg);
+}
+
+.post {
+    background: #fff;
+    padding: 0px 0px 0px 30px;
+    margin: 0px;
+}
+
+.post p{
+    margin: 0px;
+}
+
+.post .post-title {
+    padding: 10px 0px 10px 0px;
+    text-align: left;
+}
+
+.post .post-details-container{
+    padding: 20px 0px 20px 0px;
+    background: #f8f8f8;
+    height: 100%;
+}
+
+.post .post-details-container .post-author{
+    padding: 0px 20px 0px 20px;
+    display: inline-block;
+}
+
+.post .post-details-container .post-date{
+    padding: 0px 20px 0px 20px;
+    display: inline-block;
+}
+
+.post .post-text{
+    padding: 10px 20px 10px 20px;
+}
+
+.post .post-footer{
+    text-align: right;
+    padding: 0px 10px 20px 0px;
+}
+
+.post .post-text{
+
+}

@@ -1,0 +1,23 @@
+<!-- Filename: /module/Blog/view/blog/list/index.phtml -->
+<?php foreach ($this->posts as $post): ?>
+    <div class="post">
+        <div id="post<?= $post->getId() ?>" class="post-title"><h1><?= $this->escapeHtml($post->getTitle()) ?></h1></div>
+        <div class="post-details-container">
+            <div class="post-author">
+                <i class="fa fa-user fa-3" aria-hidden="true"></i> l <?php echo $post->getAuthor();?>
+            </div>
+            <div class="post-date">
+                <i class="fa fa-clock-o fa-3" aria-hidden="true"></i> l <?php echo $post->getDate()->format('Y-m-d h:i:s');?>
+            </div>
+        </div>
+        <div class="post-text" ><?php echo $this->escapeHtml($post->getText()); ?></div>
+
+        <div class="post-footer">
+            <div class="btn-block">
+                <a href="<?php echo $this->url('blog/edit', array('id'=>$post->getId()), true);?>" class="btn btn-info btn-sm">Edit</a>
+                <a href="<?php echo $this->url('blog/delete', array('id'=>$post->getId()), true);?>" class="btn btn-info btn-info btn-sm">Delete</a>
+            </div>
+
+        </div>
+    </div>
+<?php endforeach ?>

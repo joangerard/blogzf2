@@ -1,0 +1,26 @@
+
+
+<h1>Edit Post</h1>
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url('blog/edit', array(), true));
+ $form->prepare();
+
+ $form->get('submit')->setValue('Update Post');
+
+ echo $this->form()->openTag($form);
+     echo '<div class="jumbotron">';
+         echo '<div class="form-group">';
+            echo $this->formRow($form->get('post-fieldset')->get('title'));
+         echo '</div>';
+
+         echo '<div class="form-group">';
+            echo $this->formRow($form->get('post-fieldset')->get('author'));
+         echo '</div>';
+
+         echo '<div class="form-group">';
+            echo $this->formRow($form->get('post-fieldset')->get('text'));
+         echo '</div>';
+         echo $this->formSubmit($form->get('submit'));
+     echo '</div>';
+ echo $this->form()->closeTag();

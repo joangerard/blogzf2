@@ -1,0 +1,12 @@
+<h1>Post Details</h1>
+
+<dl>
+    <dt>Post Title</dt>
+    <dd><?php echo $this->escapeHtml($this->post->getTitle());?></dd>
+    <dt>Post Text</dt>
+    <dd><?php echo $this->escapeHtml($this->post->getText());?></dd>
+    <dt>Post Author</dt>
+    <dd><?php echo $this->escapeHtml($this->post->getAuthor());?></dd>
+    <dt>Post Date</dt>
+    <dd><?php echo $this->escapeHtml($this->post->getDate());?></dd>
+</dl>
