@@ -1,3 +1,4 @@
+/** URLs should go between quotation marks */
 body {
     padding-top: 60px;
     padding-bottom: 40px;
@@ -9,7 +10,7 @@ body {
 }
 
 .btn-success {
-  background-color: #57a900;
+  background-color: #0204a9;
   background-image: -moz-linear-gradient(top, #70d900, #57a900);
   background-image: -ms-linear-gradient(top, #70d900, #57a900);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
@@ -37,6 +38,7 @@ div.container a.brand {
     padding: 8px 20px 12px 40px;
 }
 
+/** URLs should go between quotation marks */
 form .jumbotron{
     background: url(http://1.bp.blogspot.com/-CYQ5F9q6YlE/VIX6zgIg8EI/AAAAAAAAGwU/nkOudSDpI18/s1600/website-background-rough-surface.jpg);
 }
@@ -81,6 +83,7 @@ form .jumbotron{
     padding: 0px 10px 20px 0px;
 }
 
+/** EMPTY STYLE */
 .post .post-text{
 
 }
