@@ -17,7 +17,8 @@ class LoginControllerFactory implements FactoryInterface{
         $realServiceLocator = $serviceLocator->getServiceLocator();
         return new LoginController(
             $realServiceLocator->get('User\Service\AuthenticationServiceInterface'),
-            $realServiceLocator->get('FormElementManager')->get('User\Form\LoginForm')
+            $realServiceLocator->get('FormElementManager')->get('User\Form\LoginForm'),
+            $realServiceLocator->get('User\Service\SessionServiceInterface')
         );
     }
 }

@@ -25,7 +25,14 @@ class ListControllerFactory implements FactoryInterface
     {
         $realServiceLocator = $serviceLocator->getServiceLocator();
         $postService        = $realServiceLocator->get('Blog\Service\PostServiceInterface');
-
-        return new ListController($postService);
+        $sessionService     = $realServiceLocator->get('User\Service\SessionServiceInterface');
+        $userPermissionHelper = $realServiceLocator->get('Blog\Helper\UserPermissionHelperInterface');
+        $userService = $realServiceLocator->get('User\Service\UserServiceInterface');
+        return new ListController(
+            $postService,
+            $sessionService,
+            $userPermissionHelper,
+            $userService
+        );
     }
 }

@@ -7,7 +7,11 @@
  */
 
 namespace User;
+use User\Factory\SessionServiceFactory;
+use User\Service\SessionService;
 // Filename: /module/Authentication/config/module.config.php
+
+
 return array(
     'doctrine' => array(
         'driver' => array(
@@ -37,6 +41,9 @@ return array(
             'User\Service\AuthenticationServiceInterface'=>'User\Factory\AuthenticationServiceFactory',
             'User\Service\PermissionServiceInterface'=>'User\Factory\PermissionServiceFactory',
             'User\Service\UserServiceInterface' => 'User\Factory\UserServiceFactory',
+        ),
+        'invokables' => array(
+            'User\Service\SessionServiceInterface' => SessionService::class
         )
     ),
     'view_manager' => array(

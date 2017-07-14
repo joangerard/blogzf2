@@ -1,5 +1,9 @@
 <!-- Filename: /module/Blog/view/blog/list/index.phtml -->
-<?php foreach ($this->posts as $post): ?>
+<?php
+    $i = 0;
+    echo $this->user->getId();
+    echo '<h2>'.$this->postModifyPermissions[$i].'</h2>';
+    foreach ($this->posts as $post): ?>
     <div class="post">
         <div id="post<?= $post->getId() ?>" class="post-title"><h1><?= $this->escapeHtml($post->getTitle()) ?></h1></div>
         <div class="post-details-container">
@@ -11,13 +15,20 @@
             </div>
         </div>
         <div class="post-text" ><?php echo $this->escapeHtml($post->getText()); ?></div>
+        <?php
 
-        <div class="post-footer">
-            <div class="btn-block">
-                <a href="<?php echo $this->url('blog/edit', array('id'=>$post->getId()), true);?>" class="btn btn-info btn-sm">Edit</a>
-                <a href="<?php echo $this->url('blog/delete', array('id'=>$post->getId()), true);?>" class="btn btn-info btn-info btn-sm">Delete</a>
+        if(true): ?>
+            <div class="post-footer">
+                <div class="btn-block">
+                    <a href="<?php echo $this->url('blog/edit', array('id'=>$post->getId()), true);?>" class="btn btn-info btn-sm">Edit</a>
+                    <a href="<?php echo $this->url('blog/delete', array('id'=>$post->getId()), true);?>" class="btn btn-info btn-info btn-sm">Delete</a>
+                </div>
+
             </div>
-
-        </div>
+<?php
+            endif;
+            ?>
     </div>
-<?php endforeach ?>
+<?php
+    $i++;
+    endforeach;

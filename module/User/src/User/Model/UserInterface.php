@@ -29,4 +29,8 @@ interface UserInterface
     public function getPermissions();
 
     public function addPermission($permission);
+
+    public function getPosts();
+
+    public function addPost($post);
 }

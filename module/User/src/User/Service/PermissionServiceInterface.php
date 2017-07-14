@@ -6,7 +6,7 @@
  * Time: 4:35 PM
  */
 
-namespace Blog\Service;
+namespace User\Service;
 
 interface PermissionServiceInterface{
     public function getAll();

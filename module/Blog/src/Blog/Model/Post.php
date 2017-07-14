@@ -10,6 +10,7 @@ namespace Blog\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use User\Model\UserInterface;
 
 /**
  * A Post.
@@ -65,6 +66,11 @@ class Post implements PostInterface
      * @ORM\Column(type="string")
      */
     protected $author;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User\Model\User", inversedBy="addPost")
+    */
+    protected $userauthor;
 
     /**
      * Magic getter to expose protected properties.
@@ -187,5 +193,16 @@ class Post implements PostInterface
     public function setAuthor($author)
     {
         $this->author = $author;
+    }
+
+    public function getUserAuthor()
+    {
+        return $this->userauthor;
+    }
+
+    public function setUserAuthor(UserInterface $userauthor)
+    {
+        $userauthor->addPost($this);
+        $this->userauthor = $userauthor;
     }
 }

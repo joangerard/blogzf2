@@ -10,22 +10,25 @@ namespace User\Controller;
 
 use function PHPSTORM_META\elementType;
 use User\Service\AuthenticationService;
+use User\Service\SessionService;
 use Zend\Form\FormInterface;
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\Session\Container;
 use Zend\View\Model\ViewModel;
 
 class LoginController extends AbstractActionController {
     protected $authenticationService;
+    protected $sessionService;
     protected $loginForm;
 
     public function __construct(
         AuthenticationService $authenticationService,
-        FormInterface $loginForm
+        FormInterface $loginForm,
+        SessionService $sessionService
     )
     {
         $this->authenticationService = $authenticationService;
         $this->loginForm = $loginForm;
+        $this->sessionService = $sessionService;
     }
 
     public function loginAction(){
@@ -37,8 +40,8 @@ class LoginController extends AbstractActionController {
             $user = $this->authenticationService->LogIn($username,$password);
 
             if(NULL !== $user){
-                $authSession = new Container('auth');
-                $authSession->user = $user;
+                $this->sessionService->save('auth','user',$user);
+                $this->sessionService->save('auth','userId',$user->getId());
                 $this->redirect()->toRoute('logged');
             }
             else{
@@ -51,8 +54,8 @@ class LoginController extends AbstractActionController {
     }
 
     public function loggedAction(){
-        $authSession = new Container('auth');
-        if($authSession->offsetGet('user') === NULL){
+        $user = $this->sessionService->getSession('auth','user');
+        if($user === NULL){
             return $this->redirect()->toRoute('login');
         }
 
@@ -60,8 +63,7 @@ class LoginController extends AbstractActionController {
     }
 
     public function logoutAction(){
-        $authSession = new Container('auth');
-        $authSession->offsetUnset('user');
+        $this->sessionService->unsetSession('auth','user');
         $this->redirect()->toRoute('login');
     }
 

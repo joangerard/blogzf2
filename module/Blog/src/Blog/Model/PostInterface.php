@@ -8,6 +8,8 @@
 
 namespace Blog\Model;
 
+use User\Model\UserInterface;
+
 interface PostInterface
 {
     /**
@@ -59,4 +61,17 @@ interface PostInterface
      * @return string
      */
     public function getAuthor();
+
+    /**
+     * Will return the AUTHOR of the blog post
+     *
+     * @return User/Model/User
+     */
+    public function getUserAuthor();
+
+    /**
+     * Will return nothing
+     *
+     */
+    public function setUserAuthor(UserInterface $userauthor);
 }

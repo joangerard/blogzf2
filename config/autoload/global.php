@@ -17,6 +17,7 @@ return array(
             'Zend\Db\Adapter\Adapter'
             => 'Zend\Db\Adapter\AdapterServiceFactory',
         ),
+        'display_exceptions' => true,
     ),
     'session' => array(
         'config' => array(

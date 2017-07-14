@@ -8,6 +8,7 @@
 namespace User\Model;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Blog\Model\Post;
 /**
  * A User.
  *
@@ -74,9 +75,17 @@ class User implements UserInterface{
     */
     protected $permissions;
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Blog\Model\Post", mappedBy="userauthor")
+     * @var posts[] An Array Collection of Post Objects
+    */
+    protected $posts;
+
     public function __construct()
     {
         $this->permissions = new ArrayCollection();
+        $this->posts = new ArrayCollection();
     }
 
     public function getId()
@@ -147,4 +156,13 @@ class User implements UserInterface{
         $this->permissions[] = $permission;
     }
 
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    public function addPost($post)
+    {
+        $this->posts[] = $post;
+    }
 }
