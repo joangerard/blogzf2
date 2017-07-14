@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: sebastian.gerard
- * Date: 6/19/2017
- * Time: 6:37 PM
- */
 
 namespace Album\Controller;
 
@@ -13,33 +7,56 @@ use Zend\View\Model\ViewModel;
 use Album\Form\AlbumForm;
 use Album\Model\Album;
 use Doctrine\ORM\EntityManager;
+use Album\Model\AlbumTable;
 
+/**
+ * DOCUMENT ALL CLASSES; INTERFACES; FUNCTIONS AND VARIALBES
+ */
 class AlbumController extends AbstractActionController
 {
+    /**
+     * @var AlbumTable
+     */
     protected $albumTable;
+
+    /**
+     * @var EntityMAnager
+     */
     protected $em;
 
+    /**
+     * Returns an instance of EntityManager
+     *
+     * @return EntityManager
+     */
     public function getEntityManager()
     {
         if (null === $this->em) {
             $this->em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
         }
+        
         return $this->em;
     }
 
+    /**
+     * Returns an instance of AlbumTable
+     *
+     * @return AlbumTable
+     */
     public function getAlbumTable()
     {
         if (!$this->albumTable) {
             $sm = $this->getServiceLocator();
-            $this->albumTable = $sm->get('Album\Model\AlbumTable');
+            $this->albumTable = $sm->get(AlbumTable::class);
         }
+        
         return $this->albumTable;
     }
 
     public function indexAction()
     {
         return new ViewModel(array(
-            'albums' => $this->getEntityManager()->getRepository('Album\Model\Album')->findAll(),
+            'albums' => $this->getEntityManager()->getRepository(Album::class)->findAll(),
         ));
     }
 
@@ -49,6 +66,12 @@ class AlbumController extends AbstractActionController
         $form->get('submit')->setValue('Add');
 
         $request = $this->getRequest();
+
+        /**
+         * IF INSIDE IF
+         * This is not good, you should create a function that handles the inner IF or use a patter or something else
+         * in order to avoid this
+         */
         if ($request->isPost()) {
             $album = new Album();
             $form->setInputFilter($album->getInputFilter());
@@ -66,9 +89,15 @@ class AlbumController extends AbstractActionController
         return array('form' => $form);
     }
 
+    /**
+     * EXCEPTIONS SHOULD ALSO BE DOCUMENTED IF THROWN
+     *
+     * @return array
+     */
     public function editAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
+        
         if (!$id) {
             return $this->redirect()->toRoute('album', array(
                 'action' => 'add'
@@ -91,6 +120,7 @@ class AlbumController extends AbstractActionController
         $form->get('submit')->setAttribute('value', 'Edit');
 
         $request = $this->getRequest();
+        
         if ($request->isPost()) {
             $form->setInputFilter($album->getInputFilter());
             $form->setData($request->getPost());
@@ -117,10 +147,11 @@ class AlbumController extends AbstractActionController
         }
 
         $request = $this->getRequest();
+        
         if ($request->isPost()) {
             $del = $request->getPost('del', 'No');
 
-            if ($del == 'Yes') {
+            if ($del === 'Yes') {
                 $id = (int) $request->getPost('id');
                 $album = $this->getEntityManager()->find('Album\Entity\Album', $id);
                 if ($album) {
