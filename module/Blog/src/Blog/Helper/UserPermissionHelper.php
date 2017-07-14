@@ -14,7 +14,6 @@ use User\Model\UserInterface;
 class UserPermissionHelper implements UserPermissionHelperInterface {
     public static function UserCanEditThisPost(UserInterface $user, PostInterface $post)
     {
-
         if($user === NULL){
             return false;
         }

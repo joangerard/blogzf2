@@ -2,7 +2,6 @@
 <?php
     $i = 0;
     echo $this->user->getId();
-    echo '<h2>'.$this->postModifyPermissions[$i].'</h2>';
     foreach ($this->posts as $post): ?>
     <div class="post">
         <div id="post<?= $post->getId() ?>" class="post-title"><h1><?= $this->escapeHtml($post->getTitle()) ?></h1></div>
@@ -15,9 +14,7 @@
             </div>
         </div>
         <div class="post-text" ><?php echo $this->escapeHtml($post->getText()); ?></div>
-        <?php
-
-        if(true): ?>
+        <?php if($this->postModifyPermissions[$i] === true): ?>
             <div class="post-footer">
                 <div class="btn-block">
                     <a href="<?php echo $this->url('blog/edit', array('id'=>$post->getId()), true);?>" class="btn btn-info btn-sm">Edit</a>

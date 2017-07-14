@@ -45,7 +45,7 @@ class ListController extends AbstractActionController
         }
         return new ViewModel(array(
             'posts' => $posts,
-            'postModifyPermission'=>$postModifyPermissions,
+            'postModifyPermissions'=>$postModifyPermissions,
             'user'=>$this->user
         ));
     }
