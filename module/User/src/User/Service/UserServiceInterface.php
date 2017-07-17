@@ -7,7 +7,8 @@
  */
 namespace User\Service;
 
-interface UserServiceInterface{
+interface UserServiceInterface
+{
     public function find($id);
     public function findByUserName($username);
 }

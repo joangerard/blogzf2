@@ -12,7 +12,8 @@ use User\Service\UserServiceInterface;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class ViewController extends AbstractActionController {
+class ViewController extends AbstractActionController
+{
     protected $userService;
 
     public function __construct(UserServiceInterface $userService)

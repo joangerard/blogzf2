@@ -11,7 +11,8 @@ use User\Controller\LoginController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class LoginControllerFactory implements FactoryInterface{
+class LoginControllerFactory implements FactoryInterface
+{
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $realServiceLocator = $serviceLocator->getServiceLocator();

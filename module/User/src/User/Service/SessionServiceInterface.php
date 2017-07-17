@@ -7,8 +7,9 @@
  */
 namespace User\Service;
 
-interface SessionServiceInterface{
-    public function save($name,$key,$value);
-    public function getSession($name,$key);
-    public function unsetSession($name,$key);
+interface SessionServiceInterface
+{
+    public function save($name, $key, $value);
+    public function getSession($name, $key);
+    public function unsetSession($name, $key);
 }

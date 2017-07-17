@@ -108,8 +108,7 @@ class AlbumController extends AbstractActionController
         // if it cannot be found, in which case go to the index page.
         try {
             $album = $this->getAlbumTable()->getAlbum($id);
-        }
-        catch (\Exception $ex) {
+        } catch (\Exception $ex) {
             return $this->redirect()->toRoute('album', array(
                 'action' => 'index'
             ));
@@ -153,7 +152,7 @@ class AlbumController extends AbstractActionController
 
             if ($del === 'Yes') {
                 $id = (int) $request->getPost('id');
-                $album = $this->getEntityManager()->find('Album\Entity\Album', $id);
+                $album = $this->getEntityManager()->find(Album::class, $id);
                 if ($album) {
                     $this->getEntityManager()->remove($album);
                     $this->getEntityManager()->flush();

@@ -12,7 +12,8 @@ use User\Controller\ViewController;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ViewControllerFactory implements FactoryInterface{
+class ViewControllerFactory implements FactoryInterface
+{
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $realServiceLocator = $serviceLocator->getServiceLocator();

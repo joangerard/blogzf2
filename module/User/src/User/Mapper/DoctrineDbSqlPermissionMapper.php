@@ -8,12 +8,11 @@
 
 namespace User\Mapper;
 
-class DoctrineDbSqlPermissionMapper extends AbstractMapper implements PermissionMapperInterface{
+class DoctrineDbSqlPermissionMapper extends AbstractMapper implements PermissionMapperInterface
+{
     protected $permissionRepository;
 
-    public function __construct(
-        $permissionRepository
-    )
+    public function __construct($permissionRepository)
     {
         $this->permissionRepository = $permissionRepository;
     }

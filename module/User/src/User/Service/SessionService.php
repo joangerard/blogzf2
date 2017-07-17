@@ -9,11 +9,13 @@ namespace User\Service;
 
 use Zend\Session\Container;
 
-class SessionService implements SessionServiceInterface{
-    public function __construct(){
-
+class SessionService implements SessionServiceInterface
+{
+    public function __construct()
+    {
     }
-    public function getSession($name,$key)
+
+    public function getSession($name, $key)
     {
         $container = new Container($name);
         return $container->offsetGet($key);

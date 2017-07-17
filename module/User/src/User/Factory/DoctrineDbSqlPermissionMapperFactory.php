@@ -11,9 +11,10 @@ use User\Mapper\DoctrineDbSqlPermissionMapper;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class DoctrineDbSqlPermissionMapperFactory implements FactoryInterface {
+class DoctrineDbSqlPermissionMapperFactory implements FactoryInterface
+{
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-       return new DoctrineDbSqlPermissionMapper('User\Model\Permission');
+        return new DoctrineDbSqlPermissionMapper('User\Model\Permission');
     }
 }

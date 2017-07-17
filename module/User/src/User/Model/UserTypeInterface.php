@@ -8,9 +8,10 @@
 
 namespace User\Model;
 
-interface UserTypeInterface{
+interface UserTypeInterface
+{
     public function getId();
-    public function GetName();
-    public function SetName($name);
-    public function Adduser(UserInterface $user);
+    public function getName();
+    public function setName($name);
+    public function addUser(UserInterface $user);
 }

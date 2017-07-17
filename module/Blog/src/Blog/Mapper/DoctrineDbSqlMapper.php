@@ -10,18 +10,20 @@ namespace Blog\Mapper;
 use Blog\Factory\Custom\BlogFactory;
 use Blog\Model\PostInterface;
 
-class DoctrineDbSqlMapper extends AbstractMapper implements PostMapperInterface {
+class DoctrineDbSqlMapper extends AbstractMapper implements PostMapperInterface
+{
 
     protected $blogFactory;
 
     public function __construct(
         BlogFactory $blogFactory
-    ){
+    ) {
         $this->blogFactory = $blogFactory;
     }
 
-    public function find($id){
-        return $this->getEntityManager()->find('Blog\Model\Post',$id);
+    public function find($id)
+    {
+        return $this->getEntityManager()->find('Blog\Model\Post', $id);
     }
     public function findAll()
     {
@@ -37,16 +39,16 @@ class DoctrineDbSqlMapper extends AbstractMapper implements PostMapperInterface 
     {
         $postObject->setDate(new \DateTime()); //TODO: Refactor this should be internally
 
-        if (NULL === $postObject->getId()) {
+        if (null === $postObject->getId()) {
             $post = $this->blogFactory->createPost();
             $postObject->setDate(new \DateTime());
             $post->set($postObject);
             $this->getEntityManager()->persist($post);
-        }
-        else{
+        } else {
             $post = $this->find($postObject->getId());
             $post->set($postObject);
         }
+
         $this->getEntityManager()->flush();
         return $postObject;
     }

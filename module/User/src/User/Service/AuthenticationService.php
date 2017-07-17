@@ -10,27 +10,28 @@ namespace User\Service;
 
 use User\Mapper\UserMapperInterface;
 
-class AuthenticationService implements AuthenticationServiceInterface{
+class AuthenticationService implements AuthenticationServiceInterface
+{
 
     protected $userMapper;
 
     public function __construct(
         UserMapperInterface $userMapper
-    )
-    {
+    ) {
         $this->userMapper = $userMapper;
     }
 
-    public function LogIn($username, $password)
+    public function logIn($username, $password)
     {
         $user = $this->userMapper->findByUserName($username);
-        if(NULL !== $user && $user->GetPassword()===$password)
-        {
+        if (null !== $user && $user->getPassword() === $password) {
             return $user;
         }
-        return NULL;
+
+        return null;
     }
-    public function Logout($username)
+
+    public function logout($username)
     {
         // TODO: Implement Logout() method.
     }
