@@ -10,6 +10,8 @@ use Doctrine\ORM\EntityManager;
 use Album\Model\AlbumTable;
 
 /**
+ * THIS CLASS HASN'T BEEN DOCUMENTED, ARE ALL OTHER CLASSES DOCUMENTED PROPERLY??
+ *
  * DOCUMENT ALL CLASSES; INTERFACES; FUNCTIONS AND VARIALBES
  */
 class AlbumController extends AbstractActionController
@@ -20,6 +22,8 @@ class AlbumController extends AbstractActionController
     protected $albumTable;
 
     /**
+     * DOES EntityMAnager exists? this might cause problems due to case sensitivity
+     *
      * @var EntityMAnager
      */
     protected $em;
@@ -31,6 +35,9 @@ class AlbumController extends AbstractActionController
      */
     public function getEntityManager()
     {
+        /**
+         * AVOID YODA CONDITIONALS AT ALL COSTS
+         */
         if (null === $this->em) {
             $this->em = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
         }
@@ -62,12 +69,18 @@ class AlbumController extends AbstractActionController
 
     public function addAction()
     {
+        /**
+         * AVOID THIS SORT OF DIRECT DEPENDENCY AND USE DEPENDENCY INJECTION
+         * BY USING NEW YOU HAVE HARD COUPLING
+         */
         $form = new AlbumForm();
         $form->get('submit')->setValue('Add');
 
         $request = $this->getRequest();
 
         /**
+         * THIS HASN't BEEN SOLVED
+         *
          * IF INSIDE IF
          * This is not good, you should create a function that handles the inner IF or use a patter or something else
          * in order to avoid this
@@ -104,11 +117,18 @@ class AlbumController extends AbstractActionController
             ));
         }
 
+        /**
+         * DOCUMENT GOES BETWEEN /**
+         */
         // Get the Album with the specified id.  An exception is thrown
         // if it cannot be found, in which case go to the index page.
         try {
             $album = $this->getAlbumTable()->getAlbum($id);
-        } catch (\Exception $ex) {
+        }
+        /**
+         * AVOID HEADING SLASH AND ADD EXCEPTION LIBRARY TO USE SECTION IN THE FILE HEADER 
+         */
+        catch (\Exception $ex) {
             return $this->redirect()->toRoute('album', array(
                 'action' => 'index'
             ));
@@ -138,6 +158,9 @@ class AlbumController extends AbstractActionController
         );
     }
 
+    /**
+     * DOC MISSING
+     */
     public function deleteAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
