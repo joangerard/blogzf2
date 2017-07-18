@@ -15,7 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="user_types")
  */
-class UserType implements UserTypeInterface{
+class UserType implements UserTypeInterface
+{
 
     /**
      * @ORM\Id @ORM\GeneratedValue @ORM\Column(type="integer")
@@ -40,7 +41,8 @@ class UserType implements UserTypeInterface{
         $this->users = new ArrayCollection();
     }
 
-    public function addUser(UserInterface $user){
+    public function addUser(UserInterface $user)
+    {
         $this->users[] = $user;
     }
 
@@ -48,13 +50,14 @@ class UserType implements UserTypeInterface{
     {
         return $this->id;
     }
-    public function GetName()
+
+    public function getName()
     {
         return $this->name;
     }
-    public function SetName($name)
+
+    public function setName($name)
     {
         $this->name = $name;
     }
-
 }

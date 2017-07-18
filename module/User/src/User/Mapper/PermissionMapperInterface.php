@@ -7,6 +7,7 @@
  */
 namespace User\Mapper;
 
-interface PermissionMapperInterface {
+interface PermissionMapperInterface
+{
     public function getAll();
 }

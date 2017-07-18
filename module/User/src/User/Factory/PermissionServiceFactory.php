@@ -11,7 +11,8 @@ use User\Service\PermissionService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class PermissionServiceFactory implements FactoryInterface{
+class PermissionServiceFactory implements FactoryInterface
+{
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         return new PermissionService(

@@ -7,6 +7,8 @@
  */
 namespace Album;
 
+use Album\Controller\AlbumController;
+
 return array(
     'doctrine' => array(
         'driver' => array(
@@ -31,7 +33,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Album\Controller\Album' => 'Album\Controller\AlbumController',
+            'Album\Controller\Album' => AlbumController::class,
         ),
     ),
     // The following section is new and should be added to your file

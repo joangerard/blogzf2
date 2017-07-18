@@ -202,23 +202,23 @@ class UserType extends \User\Model\UserType implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function GetName()
+    public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'GetName', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
-        return parent::GetName();
+        return parent::getName();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function SetName($name)
+    public function setName($name)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'SetName', [$name]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setName', [$name]);
 
-        return parent::SetName($name);
+        return parent::setName($name);
     }
 
 }

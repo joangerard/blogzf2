@@ -8,6 +8,7 @@
 
 namespace User\Service;
 
-interface AuthorizationServiceInterface{
+interface AuthorizationServiceInterface
+{
     public function userHasAuthorization();
 }

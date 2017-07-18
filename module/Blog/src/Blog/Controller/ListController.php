@@ -26,12 +26,11 @@ class ListController extends AbstractActionController
         SessionServiceInterface $sessionService,
         UserPermissionHelperInterface $userPermissionsHelper,
         UserServiceInterface $userService
-    )
-    {
+    ) {
         $this->postService = $postService;
         $this->sessionService = $sessionService;
         $this->userService = $userService;
-        $userId = $this->sessionService->getSession('auth','userId');
+        $userId = $this->sessionService->getSession('auth', 'userId');
         $this->user = $this->userService->find($userId);
         $this->userPermissionsHelper = $userPermissionsHelper;
     }
@@ -40,8 +39,8 @@ class ListController extends AbstractActionController
     {
         $posts = $this->postService->findAllPosts();
         $postModifyPermissions = new ArrayCollection();
-        foreach ($posts as $post){
-            $postModifyPermissions[] = $this->userPermissionsHelper->UserCanEditThisPost($this->user,$post);
+        foreach ($posts as $post) {
+            $postModifyPermissions[] = $this->userPermissionsHelper->userCanEditThisPost($this->user, $post);
         }
         return new ViewModel(array(
             'posts' => $posts,

@@ -7,10 +7,11 @@
  */
 namespace User\Model;
 
-interface PermissionInterface {
-    public function GetId();
-    public function GetName();
-    public function SetName($name);
-    public function GetCode();
-    public function SetCode($code);
+interface PermissionInterface
+{
+    public function getId();
+    public function getName();
+    public function setName($name);
+    public function getCode();
+    public function setCode($code);
 }

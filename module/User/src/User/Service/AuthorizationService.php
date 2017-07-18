@@ -7,7 +7,8 @@
  */
 namespace User\Service;
 
-class AuthorizationService implements AuthorizationServiceInterface{
+class AuthorizationService implements AuthorizationServiceInterface
+{
     protected $sessionService;
 
     public function userHasAuthorization()

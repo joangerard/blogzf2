@@ -9,17 +9,18 @@ namespace User\Service;
 
 use User\Mapper\UserMapperInterface;
 
-class UserService implements UserServiceInterface {
+class UserService implements UserServiceInterface
+{
     protected $userMapper;
 
     public function __construct(
         UserMapperInterface $userMapper
-    )
-    {
+    ) {
         $this->userMapper = $userMapper;
     }
 
-    public function find($id){
+    public function find($id)
+    {
         return $this->userMapper->find($id);
     }
 

@@ -7,7 +7,15 @@
  */
 namespace Blog;
 // Filename: /module/Blog/config/module.config.php
+ use Blog\Factory\DeleteControllerFactory;
+ use Blog\Factory\DoctrineDbSqlMapperFactory;
+ use Blog\Factory\ListControllerFactory;
+ use Blog\Factory\PostServiceFactory;
+ use Blog\Factory\WriteControllerFactory;
  use Blog\Helper\UserPermissionHelper;
+ use User\Factory\DoctrineDbSqlUserMapperFactory;
+ use User\Factory\UserServiceFactory;
+ use Zend\Db\Adapter\AdapterServiceFactory;
 
  return array(
      'doctrine' => array(
@@ -33,11 +41,11 @@ namespace Blog;
      ),
      'service_manager' => array(
          'factories' => array(
-             'Blog\Mapper\UserMapperInterface'   => 'Blog\Factory\DoctrineDbSqlUserMapperFactory',
-             'Blog\Service\UserServiceInterface' => 'Blog\Factory\UserServiceFactory',
-             'Blog\Mapper\PostMapperInterface'   => 'Blog\Factory\DoctrineDbSqlMapperFactory',
-             'Blog\Service\PostServiceInterface' => 'Blog\Factory\PostServiceFactory',
-             'Zend\Db\Adapter\Adapter'           => 'Zend\Db\Adapter\AdapterServiceFactory',
+             'Blog\Mapper\UserMapperInterface'   => DoctrineDbSqlUserMapperFactory::class,
+             'Blog\Service\UserServiceInterface' => UserServiceFactory::class,
+             'Blog\Mapper\PostMapperInterface'   => DoctrineDbSqlMapperFactory::class,
+             'Blog\Service\PostServiceInterface' => PostServiceFactory::class,
+             'Zend\Db\Adapter\Adapter'           => AdapterServiceFactory::class,
          ),
          'invokables' => array(
              'Blog\Helper\UserPermissionHelperInterface' => UserPermissionHelper::class,
@@ -50,9 +58,9 @@ namespace Blog;
      ),
      'controllers' => array(
          'factories' => array(
-             'Blog\Controller\List' => 'Blog\Factory\ListControllerFactory',
-             'Blog\Controller\Write' => 'Blog\Factory\WriteControllerFactory',
-             'Blog\Controller\Delete' => 'Blog\Factory\DeleteControllerFactory'
+             'Blog\Controller\List' => ListControllerFactory::class,
+             'Blog\Controller\Write' => WriteControllerFactory::class,
+             'Blog\Controller\Delete' => DeleteControllerFactory::class
          )
      ),
      // This lines opens the configuration for the RouteManager

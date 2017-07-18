@@ -9,14 +9,16 @@
 namespace User\Factory;
 
 use User\Mapper\DoctrineDbSqlUserMapper;
+use User\Model\User;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class DoctrineDbSqlUserMapperFactory implements FactoryInterface{
+class DoctrineDbSqlUserMapperFactory implements FactoryInterface
+{
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         return new DoctrineDbSqlUserMapper(
-            'User\Model\User'
+            User::class
         );
     }
 }

@@ -175,7 +175,7 @@ class AlbumController extends AbstractActionController
 
             if ($del === 'Yes') {
                 $id = (int) $request->getPost('id');
-                $album = $this->getEntityManager()->find('Album\Entity\Album', $id);
+                $album = $this->getEntityManager()->find(Album::class, $id);
                 if ($album) {
                     $this->getEntityManager()->remove($album);
                     $this->getEntityManager()->flush();

@@ -83,7 +83,8 @@ class Post implements PostInterface
         return $this->$property;
     }
 
-    public function set(PostInterface $object){
+    public function set(PostInterface $object)
+    {
         $this->setAuthor($object->getAuthor());
         $this->setDate($object->getDate());
         $this->setText($object->getText());
@@ -106,7 +107,7 @@ class Post implements PostInterface
      *
      * @param array $data
      */
-    public  function exchangeArray($data = array())
+    public function exchangeArray($data = array())
     {
         $this->id = $data['id'];
         $this->title = $data['title'];

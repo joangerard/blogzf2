@@ -7,6 +7,7 @@
  */
 namespace Blog\Factory\Custom;
 
-interface BlogFactory{
+interface BlogFactory
+{
     public function createPost();
 }
