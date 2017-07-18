@@ -12,7 +12,8 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use User\Model\User;
 
-class LoadUserData implements FixtureInterface{
+class LoadUserData implements FixtureInterface
+{
     public function load(ObjectManager $manager)
     {
         $user = new User();

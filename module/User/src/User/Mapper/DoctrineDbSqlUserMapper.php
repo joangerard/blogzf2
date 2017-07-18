@@ -13,19 +13,19 @@ use User\Model\User;
 use User\Model\UserInterface;
 use User\Model\UserType;
 
-class DoctrineDbSqlUserMapper extends AbstractMapper implements UserMapperInterface{
+class DoctrineDbSqlUserMapper extends AbstractMapper implements UserMapperInterface
+{
 
     protected $userRepository;
 
-    public function __construct(
-        $userRepository
-    )
+    public function __construct($userRepository)
     {
         $this->userRepository=$userRepository;
     }
 
-    public function find($id){
-        return $this->getEntityManager()->find($this->userRepository,$id);
+    public function find($id)
+    {
+        return $this->getEntityManager()->find($this->userRepository, $id);
     }
 
     public function findByUserName($username)

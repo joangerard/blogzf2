@@ -11,8 +11,9 @@ namespace Blog\Helper;
 use Blog\Model\PostInterface;
 use User\Model\UserInterface;
 
-class UserPermissionHelper implements UserPermissionHelperInterface {
-    public static function UserCanEditThisPost(UserInterface $user, PostInterface $post)
+class UserPermissionHelper implements UserPermissionHelperInterface
+{
+    public static function userCanEditThisPost(UserInterface $user, PostInterface $post)
     {
         if($user === NULL){
             return false;

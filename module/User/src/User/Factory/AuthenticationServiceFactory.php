@@ -12,7 +12,8 @@ use User\Service\AuthenticationService;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AuthenticationServiceFactory implements FactoryInterface{
+class AuthenticationServiceFactory implements FactoryInterface
+{
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         return new AuthenticationService(

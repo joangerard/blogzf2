@@ -10,6 +10,7 @@ namespace Blog\Helper;
 use Blog\Model\PostInterface;
 use User\Model\UserInterface;
 
-interface UserPermissionHelperInterface{
-    public static function UserCanEditThisPost(UserInterface $user, PostInterface $post);
+interface UserPermissionHelperInterface
+{
+    public static function userCanEditThisPost(UserInterface $user, PostInterface $post);
 }

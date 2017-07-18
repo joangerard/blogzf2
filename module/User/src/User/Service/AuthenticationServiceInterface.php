@@ -8,7 +8,8 @@
 
 namespace User\Service;
 
-interface AuthenticationServiceInterface{
-    public function LogIn($username,$password);
-    public function Logout($username);
+interface AuthenticationServiceInterface
+{
+    public function logIn($username, $password);
+    public function logout($username);
 }

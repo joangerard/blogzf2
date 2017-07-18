@@ -9,7 +9,8 @@ namespace Blog\Factory\Custom;
 
 use Blog\Model\Post;
 
-class MyBlogFactory implements BlogFactory {
+class MyBlogFactory implements BlogFactory
+{
     public function createPost()
     {
         return new Post();

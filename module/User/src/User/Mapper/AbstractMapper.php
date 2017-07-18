@@ -11,7 +11,8 @@ namespace User\Mapper;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AbstractMapper implements ServiceLocatorAwareInterface {
+class AbstractMapper implements ServiceLocatorAwareInterface
+{
     protected $service_manager;
     protected $em;
 

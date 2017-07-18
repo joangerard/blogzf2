@@ -81,12 +81,12 @@ class Album implements InputFilterAwareInterface
      *
      * @param array $data
      */
-public  function exchangeArray ($data = array())
-{
-    $this->id = $data['id'];
-    $this->artist = $data['artist'];
-    $this->title = $data['title'];
-}
+    public function exchangeArray($data = array())
+    {
+        $this->id = $data['id'];
+        $this->artist = $data['artist'];
+        $this->title = $data['title'];
+    }
 
     public function setInputFilter(InputFilterInterface $inputFilter)
     {

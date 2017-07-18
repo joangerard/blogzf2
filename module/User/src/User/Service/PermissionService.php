@@ -11,13 +11,13 @@ namespace User\Service;
 use Blog\Service\PermissionServiceInterface;
 use User\Mapper\PermissionMapperInterface;
 
-class PermissionService implements PermissionServiceInterface{
+class PermissionService implements PermissionServiceInterface
+{
     protected $permissionMapper;
 
     public function __construct(
         PermissionMapperInterface $permissionMapper
-    )
-    {
+    ) {
         $this->permissionMapper = $permissionMapper;
     }
 

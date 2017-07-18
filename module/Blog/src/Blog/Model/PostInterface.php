@@ -13,10 +13,10 @@ use User\Model\UserInterface;
 interface PostInterface
 {
     /**
- * Set Post Interface with other object
- *
- * @return void
- */
+     * Set Post Interface with other object
+     *
+     * @return void
+     */
     public function set(PostInterface $object);
 
     /**

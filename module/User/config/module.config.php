@@ -7,10 +7,17 @@
  */
 
 namespace User;
+
+use User\Factory\AuthenticationServiceFactory;
+use User\Factory\DoctrineDbSqlPermissionMapperFactory;
+use User\Factory\DoctrineDbSqlUserMapperFactory;
+use User\Factory\LoginControllerFactory;
+use User\Factory\PermissionServiceFactory;
 use User\Factory\SessionServiceFactory;
+use User\Factory\UserServiceFactory;
+use User\Factory\ViewControllerFactory;
 use User\Service\SessionService;
 // Filename: /module/Authentication/config/module.config.php
-
 
 return array(
     'doctrine' => array(
@@ -36,11 +43,11 @@ return array(
     ),
     'service_manager' => array(
         'factories' => array(
-            'User\Mapper\PermissionMapperInterface'   => 'User\Factory\DoctrineDbSqlPermissionMapperFactory',
-            'User\Mapper\UserMapperInterface'   => 'User\Factory\DoctrineDbSqlUserMapperFactory',
-            'User\Service\AuthenticationServiceInterface'=>'User\Factory\AuthenticationServiceFactory',
-            'User\Service\PermissionServiceInterface'=>'User\Factory\PermissionServiceFactory',
-            'User\Service\UserServiceInterface' => 'User\Factory\UserServiceFactory',
+            'User\Mapper\PermissionMapperInterface'   => DoctrineDbSqlPermissionMapperFactory::class,
+            'User\Mapper\UserMapperInterface'   => DoctrineDbSqlUserMapperFactory::class,
+            'User\Service\AuthenticationServiceInterface'=>AuthenticationServiceFactory::class,
+            'User\Service\PermissionServiceInterface'=>PermissionServiceFactory::class,
+            'User\Service\UserServiceInterface' => UserServiceFactory::class,
         ),
         'invokables' => array(
             'User\Service\SessionServiceInterface' => SessionService::class
@@ -53,8 +60,8 @@ return array(
     ),
     'controllers' => array(
         'factories' => array(
-            'User\Controller\View' => 'User\Factory\ViewControllerFactory',
-            'User\Controller\Login' => 'User\Factory\LoginControllerFactory',
+            'User\Controller\View' => ViewControllerFactory::class,
+            'User\Controller\Login' => LoginControllerFactory::class,
         )
     ),
     // This lines opens the configuration for the RouteManager

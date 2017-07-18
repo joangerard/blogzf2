@@ -7,7 +7,8 @@
  */
 namespace User\Mapper;
 
-interface UserMapperInterface{
+interface UserMapperInterface
+{
     public function find($id);
     public function findByUserName($username);
 }

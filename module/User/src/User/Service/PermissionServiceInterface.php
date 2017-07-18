@@ -8,6 +8,7 @@
 
 namespace User\Service;
 
-interface PermissionServiceInterface{
+interface PermissionServiceInterface
+{
     public function getAll();
 }

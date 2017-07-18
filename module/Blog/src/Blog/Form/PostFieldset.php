@@ -53,9 +53,5 @@ class PostFieldset extends Fieldset
                 'rows' => 10
             ],
         ));
-
-
-
-
     }
 }

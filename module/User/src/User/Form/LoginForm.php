@@ -10,7 +10,8 @@ namespace User\Form;
 
 use Zend\Form\Form;
 
-class LoginForm extends Form{
+class LoginForm extends Form
+{
     public function __construct($name = null, array $options = array())
     {
         parent::__construct($name, $options);

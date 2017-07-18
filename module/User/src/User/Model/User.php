@@ -6,9 +6,11 @@
  * Time: 4:09 PM
  */
 namespace User\Model;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Blog\Model\Post;
+
 /**
  * A User.
  *
@@ -24,9 +26,8 @@ use Blog\Model\Post;
  * @property int $typeid
  * */
 
-
-
-class User implements UserInterface{
+class User implements UserInterface
+{
 
     /**
      * @ORM\Id
@@ -117,32 +118,39 @@ class User implements UserInterface{
         return $this->username;
     }
 
-    public function setAddress1($address){
+    public function setAddress1($address)
+    {
         $this->address1=$address;
     }
-    public function setFirstname($firstname){
+    public function setFirstname($firstname)
+    {
         $this->firstname = $firstname;
     }
-    public function setSecondname($secondname){
+    public function setSecondname($secondname)
+    {
         $this->secondname = $secondname;
     }
     public function setPhone1($phone)
     {
         $this->phone1 = $phone;
     }
-    public function setUsername($username){
+    public function setUsername($username)
+    {
         $this->username = $username;
     }
-    public function setPassword($password){
+    public function setPassword($password)
+    {
         $this->password = $password;
     }
 
-    public function getType(){
+    public function getType()
+    {
         return $this->type;
     }
 
-    public function setType(UserTypeInterface $usertype){
-        $usertype->Adduser($this);
+    public function setType(UserTypeInterface $usertype)
+    {
+        $usertype->addUser($this);
         $this->type = $usertype;
     }
 

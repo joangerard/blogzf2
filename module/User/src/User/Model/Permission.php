@@ -15,7 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="permissions")
  */
-class Permission implements PermissionInterface {
+class Permission implements PermissionInterface
+{
 
     /**
      * @ORM\Id
@@ -34,24 +35,24 @@ class Permission implements PermissionInterface {
     */
     protected $name;
 
-    public function GetId()
+    public function getId()
     {
         return $this->id;
     }
 
-    public function GetCode()
+    public function getCode()
     {
         return $this->code;
     }
-    public function GetName()
+    public function getName()
     {
         return $this->name;
     }
-    public function SetCode($code)
+    public function setCode($code)
     {
         $this->code = $code;
     }
-    public function SetName($name)
+    public function setName($name)
     {
         $this->name = $name;
     }
