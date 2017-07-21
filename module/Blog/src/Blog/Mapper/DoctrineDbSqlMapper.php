@@ -50,6 +50,6 @@ class DoctrineDbSqlMapper extends AbstractMapper implements PostMapperInterface
         }
 
         $this->getEntityManager()->flush();
-        return $postObject;
+        return $post;
     }
 }

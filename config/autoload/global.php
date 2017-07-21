@@ -1,35 +1,29 @@
 <?php
-/**
- * Global Configuration Override
- *
- * You can use this file for overriding configuration values from modules, etc.
- * You would place values in here that are agnostic to the environment and not
- * sensitive to security.
- *
- * @NOTE: In practice, this file will typically be INCLUDED in your source
- * control, so do not include passwords or other sensitive information in this
- * file.
- */
-
 return array(
     'service_manager' => array(
         'factories' => array(
-            'Zend\Db\Adapter\Adapter'
-            => 'Zend\Db\Adapter\AdapterServiceFactory',
+            'Zend\\Db\\Adapter\\Adapter' => 'Zend\\Db\\Adapter\\AdapterServiceFactory',
         ),
         'display_exceptions' => true,
     ),
     'session' => array(
         'config' => array(
-            'class' => 'Zend\Session\Config\SessionConfig',
+            'class' => 'Zend\\Session\\Config\\SessionConfig',
             'options' => array(
                 'name' => 'blogapp',
             ),
         ),
-        'storage' => 'Zend\Session\Storage\SessionArrayStorage',
+        'storage' => 'Zend\\Session\\Storage\\SessionArrayStorage',
         'validators' => array(
-            'Zend\Session\Validator\RemoteAddr',
-            'Zend\Session\Validator\HttpUserAgent',
+            0 => 'Zend\\Session\\Validator\\RemoteAddr',
+            1 => 'Zend\\Session\\Validator\\HttpUserAgent',
+        ),
+    ),
+    'zf-mvc-auth' => array(
+        'authentication' => array(
+            'map' => array(
+                'Status\\V1' => 'status',
+            ),
         ),
     ),
 );

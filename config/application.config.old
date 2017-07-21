@@ -25,7 +25,6 @@ return array(
         'Blog',
         'User',
         'Status',
-        'BlogsAPI',
     ),
     'module_listener_options' => array(
         'module_paths' => array(
